@@ -4,14 +4,18 @@ import './index.css';
 
 class Square extends React.Component {
     //initialize state with a constructor
-    constructor(props) {
-        super(props);
-        //In JS classes, we need super when defining the constructor of a subclass
-        //In React, all component classes should start with a super(props) call
-        this.state = {
-            value: null,
-        };
-    }
+    // constructor(props) {
+    //     super(props);
+    //     //In JS classes, we need super when defining the constructor of a subclass
+    //     //In React, all component classes should start with a super(props) call
+    //     this.state = {
+    //         value: null,
+    //     };
+    // }
+
+    //DELETED constructor since Sqauare does not manage game state anymore
+    //Square is now a controlled component
+
     render() {
       return (
           //show the value passed by renderSquare
@@ -19,12 +23,16 @@ class Square extends React.Component {
           //onClick={() => alert('click')}
           //need to pass the function or it will alert every time React re-renders
           //onClick={function() {alert('click');}} becomes onClick={() => this.setState({value: 'X'})}
-        <button className="square" 
-        onClick={() => this.setState({value: 'X'})}
+        <button 
+           className="square" 
+           onClick={() => this.props.onClick() }
         >
-          {this.state.value}
+          {this.props.value}
         </button>
         //{this.props.value} is now {this.state.value}
+
+        //lifting state - replacing {this.state.value} with {this.props.value}
+        //replacing this.setState({value: 'X'}) with this.props.OnClick()
       );
     }
   }
@@ -37,12 +45,27 @@ class Square extends React.Component {
               squares : Array(9).fill(null),
           }
       }
+      handleClick(i) {
+          const squares = this.state.squares.slice();
+          squares[i] = 'X';
+          this.setState({squares: squares});
+      }
     renderSquare(i) {
-      return <Square value={this.state.squares[i]}/>;
+      return (
+      <Square 
+        value = {this.state.squares[i]} 
+        onClick={() => this.handleClick(i)}
+      />
+      );
       //passing a prop called value to square with Square value={i} 
       //replacing Square value={i} with value={this.state.squares[i]}
       //this.state.squares is reading from the array that we added to our state
       //each square now receives a value prop
+
+      //lifting state -need to pass a function from board to square to have square call 
+      //replaced  value={this.state.squares[i] with
+      //value = {this.state.squares[i]} and onClick={() => this.handleClick(i)}
+
     }
   
     render() {
