@@ -18,9 +18,13 @@ class Square extends React.Component {
           //adding on click - onClick={function() {alert('click');}} or
           //onClick={() => alert('click')}
           //need to pass the function or it will alert every time React re-renders
-        <button className="square" onClick={function() {alert('click');}}>
-          {this.props.value}
+          //onClick={function() {alert('click');}} becomes onClick={() => this.setState({value: 'X'})}
+        <button className="square" 
+        onClick={() => this.setState({value: 'X'})}
+        >
+          {this.state.value}
         </button>
+        //{this.props.value} is now {this.state.value}
       );
     }
   }
