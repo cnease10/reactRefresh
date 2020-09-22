@@ -3,6 +3,15 @@ import ReactDOM from 'react-dom';
 import './index.css';
 
 class Square extends React.Component {
+    //initialize state with a constructor
+    constructor(props) {
+        super(props);
+        //In JS classes, we need super when defining the constructor of a subclass
+        //In React, all component classes should start with a super(props) call
+        this.state = {
+            value: null,
+        };
+    }
     render() {
       return (
           //show the value passed by renderSquare
