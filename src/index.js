@@ -30,9 +30,19 @@ class Square extends React.Component {
   }
   
   class Board extends React.Component {
+      //initialize with constructor to add state 
+      constructor(props) {
+          super(props);
+          this.state = {
+              squares : Array(9).fill(null),
+          }
+      }
     renderSquare(i) {
-      return <Square value={i} />;
-      //passing a prop called value to square
+      return <Square value={this.state.squares[i]}/>;
+      //passing a prop called value to square with Square value={i} 
+      //replacing Square value={i} with value={this.state.squares[i]}
+      //this.state.squares is reading from the array that we added to our state
+      //each square now receives a value prop
     }
   
     render() {
