@@ -6,7 +6,10 @@ class Square extends React.Component {
     render() {
       return (
           //show the value passed by renderSquare
-        <button className="square">
+          //adding on click - onClick={function() {alert('click');}} or
+          //onClick={() => alert('click')}
+          //need to pass the function or it will alert every time React re-renders
+        <button className="square" onClick={function() {alert('click');}}>
           {this.props.value}
         </button>
       );
