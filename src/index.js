@@ -76,7 +76,7 @@ import './index.css';
     renderSquare(i) {
       return (
       <Square 
-        value = {this.props.squares[i]} 
+        value ={this.props.squares[i]} 
         onClick={() => this.props.onClick(i)}
       />
       );
@@ -156,11 +156,24 @@ import './index.css';
 
       //array.push vs array.concat
       //array.push mutates the original array
-      
+
     render() {
         const history = this.state.history;
         const current = history[history.length - 1];
         const winner = calculateWinner(current.squares);
+        //mapping the history of moves 
+        //for each move in history, we create a <li> which contains a <button>
+
+        const moves = history.map((step, move) => {
+            const desc = move ?
+            'Go to move #' + move :
+            'Go to start';
+            return(
+                <li key={move}>
+                    <button onClick={() => this.jumpTo(move)}>{desc}</button>
+                </li>
+            )
+        })
         let status;
         if (winner) {
             status = 'Winner' + winner;
@@ -175,12 +188,12 @@ import './index.css';
           <div className="game-board">
             <Board 
                 squares = {current.squares}
-                onClick={(i) => this.handleClick}
+                onClick={(i) => this.handleClick(i)}
             />
           </div>
           <div className="game-info">
             <div>{status }</div>
-            <ol>{/* TODO */}</ol>
+            <ol>{moves}</ol>
           </div>
         </div>
       );
