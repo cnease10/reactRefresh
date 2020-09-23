@@ -2,39 +2,50 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
-class Square extends React.Component {
-    //initialize state with a constructor
-    // constructor(props) {
-    //     super(props);
-    //     //In JS classes, we need super when defining the constructor of a subclass
-    //     //In React, all component classes should start with a super(props) call
-    //     this.state = {
-    //         value: null,
-    //     };
-    // }
+// class Square extends React.Component {
+//     //initialize state with a constructor
+//     // constructor(props) {
+//     //     super(props);
+//     //     //In JS classes, we need super when defining the constructor of a subclass
+//     //     //In React, all component classes should start with a super(props) call
+//     //     this.state = {
+//     //         value: null,
+//     //     };
+//     // }
 
-    //DELETED constructor since Sqauare does not manage game state anymore
-    //Square is now a controlled component
+//     //DELETED constructor since Sqauare does not manage game state anymore
+//     //Square is now a controlled component
 
-    render() {
+//     render() {
+//       return (
+//           //show the value passed by renderSquare
+//           //adding on click - onClick={function() {alert('click');}} or
+//           //onClick={() => alert('click')}
+//           //need to pass the function or it will alert every time React re-renders
+//           //onClick={function() {alert('click');}} becomes onClick={() => this.setState({value: 'X'})}
+//         <button 
+//            className="square" 
+//            onClick={() => this.props.onClick() }
+//         >
+//           {this.props.value}
+//         </button>
+//         //{this.props.value} is now {this.state.value}
+
+//         //lifting state - replacing {this.state.value} with {this.props.value}
+//         //replacing this.setState({value: 'X'}) with this.props.OnClick()
+//       );
+//     }
+//   }
+
+
+//Create function component for Square
+//does not have its own state
+  function Square(props) {
       return (
-          //show the value passed by renderSquare
-          //adding on click - onClick={function() {alert('click');}} or
-          //onClick={() => alert('click')}
-          //need to pass the function or it will alert every time React re-renders
-          //onClick={function() {alert('click');}} becomes onClick={() => this.setState({value: 'X'})}
-        <button 
-           className="square" 
-           onClick={() => this.props.onClick() }
-        >
-          {this.props.value}
-        </button>
-        //{this.props.value} is now {this.state.value}
-
-        //lifting state - replacing {this.state.value} with {this.props.value}
-        //replacing this.setState({value: 'X'}) with this.props.OnClick()
+          <button className="square" onClick={props.onClick} >
+              {props.value}
+          </button>
       );
-    }
   }
   
   class Board extends React.Component {
