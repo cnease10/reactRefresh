@@ -136,10 +136,11 @@ import './index.css';
                   squares: Array(9).fill(null),
               }],
               xIsNext: true,
+              stepNumber: 0,
           };
       }
         handleClick(i) {
-          const history = this.state.history;
+          const history = this.state.history.slice(0, this.state.stepNumber + 1);
           const current = history[history.length -1];
           const squares = current.squares.slice();
           if (calculateWinner(squares) || squares[i]) {
@@ -150,8 +151,15 @@ import './index.css';
             history: history.concat([{
                 squares: squares
             }]),
+              stepNumber: history.length,
               xIsNext: !this.state.xIsNext,
             });
+      }
+      jumpTo(step) {
+          this.setState({
+              stepNumber: step,
+              xIsNext: (step % 2) === 0,
+          });
       }
 
       //array.push vs array.concat
@@ -159,7 +167,9 @@ import './index.css';
 
     render() {
         const history = this.state.history;
-        const current = history[history.length - 1];
+        // const current = history[history.length - 1] to history[this.state.stepNumber]
+        // instead of always rendering the last move, we should render the currently selected move
+        const current = history[this.state.stepNumber];
         const winner = calculateWinner(current.squares);
         //mapping the history of moves 
         //for each move in history, we create a <li> which contains a <button>
