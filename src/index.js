@@ -2,6 +2,17 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import Game from './Game';
+import Map from './Map'
+
+ReactDOM.render(
+ 
+   <Game />,
+  
+ 
+  document.getElementById('root')
+);
+
+
 // class Square extends React.Component {
 //     //initialize state with a constructor
 //     // constructor(props) {
@@ -233,8 +244,4 @@ import Game from './Game';
   
   // ========================================
   
-  ReactDOM.render(
-    <Game />,
-    document.getElementById('root')
-  );
-  
+ 

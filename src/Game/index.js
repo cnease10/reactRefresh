@@ -1,5 +1,9 @@
 import React from 'react';
 import Board from '../Board'
+import Map from '../Map'
+import Map1 from '../Map1'
+import Map2 from '../Map2'
+import Map3 from '../Map3'
 //import Square from '../Square'
 
 class Game extends React.Component {
@@ -80,6 +84,14 @@ return (
       <div>{status }</div>
       <ol>{moves}</ol>
     </div>
+    <section>
+    <Map />
+    <Map1 />
+    <Map2/>
+    <Map3/>
+    </section>
+    
+
   </div>
 );
 }
