@@ -49,3 +49,10 @@ body {
     margin-left: 20px;
   }
   
+  .map-section {
+    padding: 30px;
+  }
+
+  .section {
+    display: none;
+  }

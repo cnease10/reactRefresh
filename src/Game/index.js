@@ -9,7 +9,7 @@ import Map3 from '../Map3'
 class Game extends React.Component {
 //initializing state
 constructor(props) {
-    super(props);
+    super();
     this.state = {
         history: [{
             squares: Array(9).fill(null),
@@ -84,7 +84,7 @@ return (
       <div>{status }</div>
       <ol>{moves}</ol>
     </div>
-    <section>
+    <section className="map-section">
     <Map />
     <Map1 />
     <Map2/>
