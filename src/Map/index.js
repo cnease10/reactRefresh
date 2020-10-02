@@ -1,14 +1,29 @@
+import { render } from '@testing-library/react';
 //import { render } from '@testing-library/react';
 import React from 'react';
 
-function Map() {
-
-    return (
-        <React.Fragment>
-            <p>I'm a new component</p>
-        </React.Fragment>
-    )
-        
+class Map extends React.Component {
+    constructor() {
+        super();
+        this.state = {
+         grocery : ["milk", "water", "food"]
+        }
+    }
+    
+    render() {
+        // const [grocery, setstate] = useState(["Milk", "bread", "water"]);
+        return (
+            <React.Fragment>
+                <ul>
+                    {this.state.grocery.map(item => (
+                        <li key={item}>{item}</li>
+                    ) )}
+                </ul>
+            </React.Fragment>
+        )
+          
+    }
+      
         
     
 }

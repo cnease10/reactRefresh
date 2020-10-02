@@ -11,13 +11,13 @@ function Map1() {
         //grab section below and show
         //hide all other sections 
         console.log('you clicked me')
-        e.preventDefault();
-        console.log(e)
+        // e.preventDefault();
+        // console.log(e)
     }
     return (
         <React.Fragment>
 
-            <h1 onClick={(e) => {headerClick(e)}}>h1</h1>
+            <h1 onClick={(e) => {headerClick(e.target)}}>h1</h1>
             <section className="section">h1 info</section>
             <h2 onClick={(e) => {headerClick(e)}}>h2</h2>
             <section className="section">h2 info</section>
