@@ -88,7 +88,7 @@ return (
     <Map />
     <Map1 />
     <Map2/>
-    <Map3/>
+   
     </section>
     
 

@@ -1,8 +1,10 @@
 body {
     font: 14px "Century Gothic", Futura, sans-serif;
     margin: 20px;
+    
   }
   
+
   ol, ul {
     padding-left: 30px;
   }
@@ -58,4 +60,17 @@ body {
   }
   .sectionAcc.active {
     display: block;
+  }
+
+  .flextwo {
+    display: flex;
+    flex-direction:column;
+    margin-top: 10px;
+  }
+  /* flex-direction column - everything is a section down the /page
+  flex-direction row - everything is a section across the /page */
+
+  img {
+    height: auto;
+    width: 100%;
   }

@@ -1,5 +1,5 @@
 import React from 'react';
-
+import Map3 from '../Map3'
 class Map2 extends React.Component {
     constructor() {
         super();
@@ -26,6 +26,7 @@ class Map2 extends React.Component {
                 <input type="text" name="text3" value={this.state.text3} onChange={this.handleChange}></input>
                 <label>text3</label>
             </form>
+            <Map3 />
         </React.Fragment>
     
         )

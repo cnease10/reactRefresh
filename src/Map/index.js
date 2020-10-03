@@ -7,7 +7,15 @@ class Map extends React.Component {
         super();
         this.state = {
          grocery : ["milk", "water", "food"],
-         funStuff: [["code", "code", "code"], ["friends", "family", "brett"], ["reading", "puzzles", "outside"]]
+         funStuff: [["code", "code", "code"], ["friends", "family", "brett"], ["reading", "puzzles", "outside"]],
+         phoneNumbers: [
+            {name: 'annie', phone: 404567181}, 
+            {name: 'orrin', phone: 347810532}, 
+            {name: 'brett', phone : 1231049353}
+         ],
+
+           
+            
         }
     
     }
@@ -20,13 +28,50 @@ class Map extends React.Component {
         this.setState({funStuff: items})
         
     }
+    // getPhone() {
+    //     let names = []
+    //     let phone = []
+    //     for (let i = 0; i < this.state.phoneNumbers.length; i++) {
+    //         console.log(this.state.phoneNumbers[i])
+    //         names = names + " " + this.state.phoneNumbers[i].name 
+    //         console.log(names)
+    //         phone = phone + " " + this.state.phoneNumbers[i].phone
+    //         console.log(phone)
+           
+    //     }
+    //     return names && phone
+    //     //this.setState({names: names})
+    // }
     componentDidMount() {
         this.newFunction()
-        console.log(this.state.funStuff)
+        //this.getPhone()
+        
     }
     
     render() {
+        let names = []
+        let phone = []
+        let namePhone = []
+        let phoneNumbers = this.state.phoneNumbers
+        function getPhone() {
         
+        for (let i = 0; i < phoneNumbers.length; i++) {
+            console.log(phoneNumbers[i])
+            names = names + " " + phoneNumbers[i].name
+            names = names.split()
+            console.log(names)
+            
+            phone = phone + " " + phoneNumbers[i].phone
+            phone = phone.split()
+            console.log(typeof(phone))
+            namePhone = namePhone + " " + phoneNumbers[i].name + ":" + phoneNumbers[i].phone
+            namePhone = namePhone.split()
+            
+        }
+        return names && phone
+        //this.setState({names: names})
+    }
+    getPhone()
         
         return (
             <React.Fragment>
@@ -40,6 +85,24 @@ class Map extends React.Component {
                        <li key={index}>{fun}</li>
                    ))}
                 </ul>  
+                
+                <ul>
+                    {names.map((name, index) => (
+                        <li key={index}>{name}</li>
+                    ))}
+                    {phone.map((phone, index) => (
+                        <li key={index}>{phone}</li>
+                    ))}
+                </ul>
+                <ul>
+                   <li>{JSON.stringify(this.state.phoneNumbers, null, 5)}</li> 
+                </ul>
+                <ul>
+                    {namePhone.map((namePhone, index) => (
+                        <li key={index}>{namePhone}</li>
+                    ))}
+                </ul>
+              
             </React.Fragment>
         )
           
@@ -118,3 +181,14 @@ export default Map
         // this.setState(state => ({
         //     funStuff: funStuffItems
         // }))
+
+    //     <ul>
+    //     {this.state.phoneNumbers.map((phone, name) =>(
+    //         <li key={name}>{phone}</li>
+    //     ))}
+    // </ul>
+    //can't map an array of objects
+  {/* <ul>
+                    <li>{Object.entries(this.state.phoneNumbers)}</li>
+                    objects are not valid as react children
+                </ul> */}
