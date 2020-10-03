@@ -22,7 +22,7 @@ class Map extends React.Component {
     newFunction() {
         let items = []
         items = this.state.funStuff.join(',').split(',')
-        console.log(items)
+        //console.log(items)
         //items is now an array of all the items 
 
         this.setState({funStuff: items})
@@ -56,14 +56,14 @@ class Map extends React.Component {
         function getPhone() {
         
         for (let i = 0; i < phoneNumbers.length; i++) {
-            console.log(phoneNumbers[i])
+            //console.log(phoneNumbers[i])
             names = names + " " + phoneNumbers[i].name
             names = names.split()
-            console.log(names)
+            //console.log(names)
             
             phone = phone + " " + phoneNumbers[i].phone
             phone = phone.split()
-            console.log(typeof(phone))
+            //console.log(typeof(phone))
             namePhone = namePhone + " " + phoneNumbers[i].name + ":" + phoneNumbers[i].phone
             namePhone = namePhone.split()
             

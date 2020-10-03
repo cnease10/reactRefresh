@@ -1,5 +1,5 @@
 import React from 'react';
-
+import TableAPI from '../TableAPI'
 function Map3() {
 
     return (
@@ -24,7 +24,7 @@ function Map3() {
           <p>How many elements is too many elements?</p>
           <p>How many elements is too many elements?</p>
         </div>
-          
+        <TableAPI />
         </React.Fragment>
     )
         
